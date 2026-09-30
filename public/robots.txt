@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amin-reda.dev/sitemap.xml
+
