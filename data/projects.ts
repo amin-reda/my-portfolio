@@ -336,19 +336,87 @@ const projects: Project[] = [
     systemLabel: 'DATA ANALYSIS',
     accentColor: '#f59e0b',
   },
+  {
+    id: 'global-superstore-analysis',
+    titleEn: 'Global Superstore Profitability Analysis',
+    titleAr: 'تحليل ربحية المتجر العالمي',
+    categories: ['Data'],
+    status: 'completed',
+    isTeamProject: false,
+    descriptionEn:
+      'An end-to-end profitability analysis of the Global Superstore dataset (~51K orders, 2011–2014): data cleaning, EDA, 7 KPIs, RFM customer segmentation, and an interactive Plotly dashboard — answering one central question: does sales growth actually translate into profit?',
+    descriptionAr:
+      'تحليل ربحية شامل من البداية للنهاية على مجموعة بيانات Global Superstore (~51 ألف طلب، 2011–2014): تنظيف البيانات، التحليل الاستكشافي، 7 مؤشرات أداء رئيسية، تقسيم عملاء RFM، ولوحة بيانات تفاعلية ببلوتلي — للإجابة على سؤال محوري واحد: هل نمو المبيعات يُترجم فعلاً إلى أرباح؟',
+    problemEn:
+      "The company's sales are growing strongly (CAGR 23.9%), but it isn't clear whether that growth translates into proportional profit — or which regions, categories, and customer segments are genuinely profitable versus which are losing money despite healthy sales volume.",
+    problemAr:
+      'تنمو مبيعات الشركة بقوة (معدل نمو سنوي مركب 23.9%)، لكن غير واضح ما إذا كان هذا النمو يتحول إلى أرباح متناسبة — أو أي المناطق والفئات وشرائح العملاء مربحة فعلاً مقابل تلك التي تخسر رغم حجم مبيعات مرتفع.',
+    solutionEn:
+      'A rigorous 5-notebook analysis pipeline: data cleaning with Pandas (mixed-format dates, feature engineering), multivariate EDA, KPI design derived from EDA findings, discount impact deep-dive, and RFM customer segmentation — each insight validated against sample size and outlier influence before acceptance.',
+    solutionAr:
+      'خط تحليل صارم من 5 دفاتر: تنظيف البيانات بـ Pandas (تواريخ بتنسيقات مختلطة، هندسة الميزات)، تحليل متعدد المتغيرات، تصميم مؤشرات أداء مستمدة من نتائج التحليل، تعمق في تأثير الخصومات، وتقسيم عملاء RFM — مع التحقق من كل رؤية مقابل حجم العينة وتأثير القيم الشاذة قبل قبولها.',
+    technologies: [
+      'Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn',
+      'Plotly', 'Jupyter Notebook', 'RFM Analysis', 'KPI Design', 'EDA',
+    ],
+    features: [
+      '~51K orders analyzed across 4 years (2011–2014)',
+      'Discount root-cause analysis: orders >20% discount lose money 89.9% of the time',
+      'Net loss of -$814,682 across 11,328 discounted orders identified',
+      'Tables sub-category profitability breakdown: avg. 29.1% discount vs. 14.5% company-wide',
+      'EMEA market deep-dive: 5.4% margin vs. 11–13% elsewhere, driven by systemic over-discounting',
+      'Sales CAGR of 23.9% with stable ~11–12% overall margin confirmed',
+      '7 business KPIs designed from EDA findings',
+      'RFM segmentation: Champions = 21.8% of customers, 43.3% of revenue',
+      '"At Risk (High Value)" segment flagged — not discount-driven, open investigation',
+      'Interactive Plotly dashboard for stakeholder exploration',
+      'Modular src/ functions: cleaning, KPIs, RFM, plotting',
+    ],
+    featuresAr: [
+      'تحليل ~51 ألف طلب على مدى 4 سنوات (2011–2014)',
+      'تحليل السبب الجذري للخصومات: طلبات بخصم >20% تخسر 89.9% من الحالات',
+      'خسارة صافية بـ -$814,682 عبر 11,328 طلباً مخصوماً',
+      'تفصيل ربحية فئة "الطاولات": خصم 29.1% في المتوسط مقابل 14.5% على مستوى الشركة',
+      'تعمق في سوق EMEA: هامش 5.4% مقابل 11–13% في أماكن أخرى، بسبب الإفراط المنهجي في الخصم',
+      'تأكيد معدل نمو مبيعات سنوي 23.9% مع هامش كلي مستقر ~11–12%',
+      '7 مؤشرات أداء رئيسية مصممة من نتائج التحليل',
+      'تقسيم RFM: الأبطال = 21.8% من العملاء، 43.3% من الإيرادات',
+      'شريحة "في خطر (عالية القيمة)" مُعلَّمة — ليست بسبب الخصومات، تحقيق مفتوح',
+      'لوحة بيانات تفاعلية ببلوتلي لاستكشاف أصحاب المصلحة',
+      'دوال src/ معيارية: التنظيف، مؤشرات الأداء، RFM، الرسم',
+    ],
+    architecture: [
+      [{ label: 'Raw Dataset (~51K orders)', labelAr: 'مجموعة البيانات الخام (~51 ألف طلب)' }],
+      [{ label: '01 Data Cleaning (Pandas)', labelAr: '01 تنظيف البيانات (Pandas)' }],
+      [{ label: '02 EDA — Univariate / Bivariate / Multivariate', labelAr: '02 التحليل الاستكشافي — أحادي / ثنائي / متعدد المتغيرات' }],
+      [{ label: '03 KPI Design & Discount Deep-Dive', labelAr: '03 تصميم مؤشرات الأداء والتعمق في الخصومات' }, { label: '04 Market & Category Analysis', labelAr: '04 تحليل السوق والفئات' }],
+      [{ label: '05 RFM Customer Segmentation', labelAr: '05 تقسيم العملاء RFM' }],
+      [{ label: 'Interactive Plotly Dashboard', labelAr: 'لوحة بيانات تفاعلية ببلوتلي' }],
+      [{ label: 'Business Insights & Recommendations', labelAr: 'رؤى الأعمال والتوصيات' }],
+    ],
+    keyLearnings: [
+      'Correlation ≠ causation: validating every insight before accepting it',
+      'Designing KPIs from EDA findings rather than deciding upfront',
+      'RFM segmentation as a customer-level diagnostic lens',
+      'Discount threshold analysis: identifying the exact break-even point',
+      'Building modular, reusable analysis functions in src/',
+      'Plotly for interactive, stakeholder-ready dashboards',
+    ],
+    keyLearningsAr: [
+      'الارتباط لا يعني السببية: التحقق من كل رؤية قبل قبولها',
+      'تصميم مؤشرات الأداء من نتائج التحليل لا من قرارات مسبقة',
+      'تقسيم RFM كعدسة تشخيصية على مستوى العميل',
+      'تحليل عتبة الخصم: تحديد نقطة التعادل الدقيقة',
+      'بناء دوال تحليل معيارية وقابلة للإعادة في src/',
+      'Plotly للوحات بيانات تفاعلية جاهزة لأصحاب المصلحة',
+    ],
+    github: 'https://github.com/amin-reda/global-superstore-analysis',
+    systemLabel: 'INSIGHTS READY',
+    accentColor: '#0ea5e9',
+  },
 ];
 
 export const comingSoonProjects = [
-  {
-    id: 'sales-data-analysis',
-    titleEn: 'Sales Data Analysis',
-    titleAr: 'تحليل بيانات المبيعات',
-    status: 'coming-soon' as ProjectStatus,
-    categories: ['Data'] as ProjectCategory[],
-    descriptionEn: 'End-to-end sales data analysis project — exploring patterns, trends, and business insights.',
-    descriptionAr: 'مشروع تحليل بيانات مبيعات شامل — استكشاف الأنماط والاتجاهات ورؤى الأعمال.',
-    accentColor: '#0ea5e9',
-  },
   {
     id: 'ai-automation-projects',
     titleEn: 'Additional AI Automation Projects',
